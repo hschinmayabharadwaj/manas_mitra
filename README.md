@@ -34,3 +34,6 @@ npm run dev
 ```
 
 This will start the Next.js development server, and you can view the application by navigating to `http://localhost:9002` in your browser.
+
+since this is new It is just a prototype
+
