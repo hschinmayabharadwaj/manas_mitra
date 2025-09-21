@@ -1,0 +1,28 @@
+{
+  "node": {
+    "40f731ace3670e79b7891149cc31de4bb720ba27eb": {
+      "workers": {
+        "app/page": {
+          "moduleId": "[project]/.next-internal/server/app/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/lib/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/page": "action-browser"
+      }
+    },
+    "403fa41d7ccfd75c68e9f49ab444671605baee140f": {
+      "workers": {
+        "app/check-in/page": {
+          "moduleId": "[project]/.next-internal/server/app/check-in/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/lib/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/check-in/page": "action-browser"
+      }
+    }
+  },
+  "edge": {},
+  "encryptionKey": "hsI2+Ek0vR3oZTTQy5ISABhvHnKn3Ttb3TYzP8iVkY0="
+}
