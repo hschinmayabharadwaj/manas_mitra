@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
   BookHeart,
+  Brain,
   LayoutDashboard,
   LineChart,
   MessageSquare,
@@ -26,6 +27,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 const menuItems = [
   { href: '/', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/check-in', label: 'Daily Check-in', icon: SmilePlus },
+  { href: '/mindfulness', label: 'Mindfulness', icon: Brain },
   { href: '/progress', label: 'My Progress', icon: LineChart },
   { href: '/resources', label: 'Resources', icon: BookHeart },
   { href: '/forum', label: 'Forum', icon: MessageSquare },

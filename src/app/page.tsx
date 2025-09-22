@@ -2,7 +2,7 @@ import { WelcomeHeader } from '@/components/dashboard/welcome-header';
 import { AffirmationCard } from '@/components/dashboard/affirmation-card';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { ArrowRight, BookHeart, LineChart } from 'lucide-react';
+import { ArrowRight, BookHeart, Brain, LineChart } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Home() {
@@ -21,7 +21,7 @@ export default function Home() {
             </Button>
         </Card>
       </div>
-      <div className="grid gap-8 md:grid-cols-2">
+      <div className="grid gap-8 md:grid-cols-3">
         <Card>
             <CardContent className="p-6 flex items-center gap-6">
                 <div className="p-3 bg-accent/20 rounded-lg text-accent-foreground"><LineChart className="w-8 h-8"/></div>
@@ -30,6 +30,18 @@ export default function Home() {
                     <p className="text-sm text-muted-foreground mb-4">See your mood trends and celebrate your journey.</p>
                     <Button variant="outline" asChild>
                         <Link href="/progress">View Progress <ArrowRight/></Link>
+                    </Button>
+                </div>
+            </CardContent>
+        </Card>
+        <Card>
+            <CardContent className="p-6 flex items-center gap-6">
+                <div className="p-3 bg-primary/20 rounded-lg text-primary"><Brain className="w-8 h-8"/></div>
+                <div>
+                    <h3 className="text-lg font-bold mb-1 font-headline">Mindfulness</h3>
+                    <p className="text-sm text-muted-foreground mb-4">Guided breathing, meditation, and mindful moments.</p>
+                    <Button variant="outline" asChild>
+                        <Link href="/mindfulness">Start Session <ArrowRight/></Link>
                     </Button>
                 </div>
             </CardContent>

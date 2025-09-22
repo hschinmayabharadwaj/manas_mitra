@@ -1,8 +1,5 @@
 {
-  "/check-in/page": "app/check-in/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/forum/page": "app/forum/page.js",
-  "/page": "app/page.js",
-  "/progress/page": "app/progress/page.js",
-  "/resources/page": "app/resources/page.js"
+  "/mindfulness/page": "app/mindfulness/page.js",
+  "/page": "app/page.js"
 }
