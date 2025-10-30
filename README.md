@@ -140,6 +140,5 @@ This project follows modern React and Next.js development patterns. When contrib
 - Follow TypeScript best practices
 - Use the established component structure
 - Maintain accessibility standards
-- Test AI flows thoroughly
-- Follow the existing code style
+
 
