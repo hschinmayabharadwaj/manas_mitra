@@ -50,7 +50,31 @@ const generateAffirmationFlow = ai.defineFlow(
     outputSchema: GenerateAffirmationOutputSchema,
   },
   async input => {
-    const {output} = await prompt(input);
-    return output!;
+    const maxRetries = 3;
+    let lastError;
+    
+    for (let i = 0; i < maxRetries; i++) {
+      try {
+        const {output} = await prompt(input);
+        return output!;
+      } catch (error: any) {
+        lastError = error;
+        if (error?.status === 503) {
+          // Wait for 1 second before retrying (1000ms * retry attempt number)
+          await new Promise(resolve => setTimeout(resolve, 1000 * (i + 1)));
+          continue;
+        }
+        throw error;
+      }
+    }
+    
+    // If we've exhausted all retries, return a fallback response
+    if (lastError?.status === 503) {
+      return {
+        affirmation: "You are strong and capable. Every day brings new opportunities for growth and learning."
+      };
+    }
+    
+    throw lastError;
   }
 );

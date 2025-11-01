@@ -291,8 +291,29 @@ const generateAffirmationFlow = __TURBOPACK__imported__module__$5b$project$5d2f$
     inputSchema: GenerateAffirmationInputSchema,
     outputSchema: GenerateAffirmationOutputSchema
 }, async (input)=>{
-    const { output } = await prompt(input);
-    return output;
+    const maxRetries = 3;
+    let lastError;
+    for(let i = 0; i < maxRetries; i++){
+        try {
+            const { output } = await prompt(input);
+            return output;
+        } catch (error) {
+            lastError = error;
+            if (error?.status === 503) {
+                // Wait for 1 second before retrying (1000ms * retry attempt number)
+                await new Promise((resolve)=>setTimeout(resolve, 1000 * (i + 1)));
+                continue;
+            }
+            throw error;
+        }
+    }
+    // If we've exhausted all retries, return a fallback response
+    if (lastError?.status === 503) {
+        return {
+            affirmation: "You are strong and capable. Every day brings new opportunities for growth and learning."
+        };
+    }
+    throw lastError;
 });
 ;
 (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$action$2d$validate$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["ensureServerEntryExports"])([
